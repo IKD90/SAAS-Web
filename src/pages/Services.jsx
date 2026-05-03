@@ -87,6 +87,31 @@ const Services = () => {
         </div>
       </div>
 
+      {/* Live Product Demos */}
+      <div className="features">
+      <div className="card" style={{textAlign: 'center'}}>
+          <Link to="/products/Invoices" className="btn-signup" style={{display: 'inline-block', margin: '0.5rem'}}>
+            <i className="fas fa-video" style={{marginRight: '8px'}}></i>
+            InvoicePro Billing System
+          </Link>
+          <p>Live video calls, screen sharing & chat</p>
+        </div>
+        <div className="card" style={{textAlign: 'center'}}>
+          <Link to="/products/team-collaboration" className="btn-signup" style={{display: 'inline-block', margin: '0.5rem'}}>
+            <i className="fas fa-users" style={{marginRight: '8px'}}></i>
+            TeamCollab Enterprise
+          </Link>
+          <p>Real-time team chat, tasks, and admin tools</p>
+        </div>
+        <div className="card" style={{textAlign: 'center'}}>
+          <Link to="/products/Video-Conference" className="btn-signup" style={{display: 'inline-block', margin: '0.5rem'}}>
+            <i className="fas fa-video" style={{marginRight: '8px'}}></i>
+            MeetHub Video Conference
+          </Link>
+          <p>Live video calls, screen sharing & chat</p>
+        </div>
+      </div>
+
       {/* Technology Stack */}
       <div className="testimonials">
         <h3>Technologies We Work With</h3>

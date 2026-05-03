@@ -89,26 +89,26 @@ useEffect(() => {
                 <div className="mega-grid">
                   <div className="mega-column">
                     <h4>Core SaaS Platform</h4>
-                    <Link to="/products/white-label" className="mega-link">White Label Solution</Link>
-                    <Link to="/products/api-management" className="mega-link">API Management</Link>
-                    <Link to="/products/marketplace" className="mega-link">App Marketplace</Link>
+                <Link to="/products/white-label-solution" className="mega-link">White Label Solution</Link>
+                <Link to="/products/api-management" className="mega-link">API Management</Link>
+                <Link to="/products/app-marketplace" className="mega-link">App Marketplace</Link>
                   </div>
                   <div className="mega-column">
                     <h4>Business Applications</h4>
-                    <Link to="/products/crm" className="mega-link">CRM System</Link>
+                    <Link to="/crm" className="mega-link">CRM System</Link>
                     <Link to="/products/erp" className="mega-link">ERP Solutions</Link>
                     <Link to="/products/hr" className="mega-link">HR Management</Link>
                     <Link to="/ecommerce" className="mega-link">E-Commerce Platform</Link>
-                    <Link to="/products/project-management" className="mega-link">Project Management</Link>
-                    <Link to="/products/invoicing" className="mega-link">Invoicing</Link>
+                    <Link to="/products/hr-management" className="mega-link">Project Management</Link>
+                    <Link to="/products/invoices" className="mega-link">Invoicing</Link>
                   </div>
                   <div className="mega-column">
                     <h4>Collaboration Tools</h4>
-                    <Link to="/products/collaboration" className="mega-link">Team Collaboration</Link>
-                    <Link to="/video-conferencing" className="mega-link">
-                      <i className="fas fa-video" style={{ marginRight: '5px' }}></i>
-                      Video Conferencing
-                    </Link>
+<Link to="/products/team-collaboration" className="mega-link">TeamCollab</Link>
+<Link to="/products/Video-Conference" className="mega-link">
+  <i className="fas fa-video" style={{ marginRight: '5px' }}></i>
+  MeetHub Video Conference
+</Link>
                     <Link to="/products/document-management" className="mega-link">Document Management</Link>
                     <Link to="/products/workflow" className="mega-link">Workflow Automation</Link>
                   </div>
@@ -196,13 +196,13 @@ useEffect(() => {
             <div className={`mobile-dropdown-content ${activeDropdown === 'products' ? 'active' : ''}`}>
               <div className="mobile-dropdown-section">
                 <h4>Core SaaS Platform</h4>
-                <Link to="/products/white-label" onClick={closeMobileMenu}>White Label Solution</Link>
-                <Link to="/products/api-management" onClick={closeMobileMenu}>API Management</Link>
-                <Link to="/products/marketplace" onClick={closeMobileMenu}>App Marketplace</Link>
+                <Link to="/products/erp" onClick={closeMobileMenu}>White Label Solution</Link>
+                <Link to="/products/erp" onClick={closeMobileMenu}>API Management</Link>
+                <Link to="/products/erp" onClick={closeMobileMenu}>App Marketplace</Link>
               </div>
               <div className="mobile-dropdown-section">
                 <h4>Business Applications</h4>
-                <Link to="/products/crm" onClick={closeMobileMenu}>CRM System</Link>
+                <Link to="/crm" onClick={closeMobileMenu}>CRM System</Link>
                 <Link to="/products/erp" onClick={closeMobileMenu}>ERP Solutions</Link>
                 <Link to="/products/hr" onClick={closeMobileMenu}>HR Management</Link>
                 <Link to="/ecommerce" onClick={closeMobileMenu}>E-Commerce Platform</Link>
@@ -211,10 +211,10 @@ useEffect(() => {
               </div>
               <div className="mobile-dropdown-section">
                 <h4>Collaboration Tools</h4>
-                <Link to="/products/collaboration" onClick={closeMobileMenu}>Team Collaboration</Link>
-                <Link to="/video-conferencing" onClick={closeMobileMenu}>
+                <Link to="/products/team-collaboration" onClick={closeMobileMenu}>TeamCollab</Link>
+                <Link to="/products/Video-Conference" onClick={closeMobileMenu}>
                   <i className="fas fa-video" style={{ marginRight: '5px' }}></i>
-                  Video Conferencing
+                  MeetHub Video
                 </Link>
                 <Link to="/products/document-management" onClick={closeMobileMenu}>Document Management</Link>
                 <Link to="/products/workflow" onClick={closeMobileMenu}>Workflow Automation</Link>

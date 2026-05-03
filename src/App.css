@@ -137,8 +137,18 @@ body {
 /* ========================================
    MAIN APP
    ======================================== */
-.main-app {
-  display: block;
+.main-app, .main-content {
+  min-height: calc(100vh - 120px);
+  overflow: auto;
+}
+
+.erp-container {
+  min-height: 100vh !important;
+}
+
+.sidebar {
+  height: auto !important;
+  min-height: 100vh;
 }
 
 .app-header {

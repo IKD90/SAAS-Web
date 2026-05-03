@@ -362,3 +362,10 @@ const Blogs = () => {
 };
 
 export default Blogs;
+
+import BlogIntegration from '../Product Pages/BlogIntegration.jsx';
+
+      {/* Newsletter Blogs Section */}
+      <div className="newsletter-blogs-section" style={{ marginTop: "3rem" }}>
+        <BlogIntegration />
+      </div>

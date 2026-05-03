@@ -167,7 +167,7 @@ const Ecommerce = () => {
           border: '3px dashed #cbd5e0'
         }}>
           <h2 style={{ textAlign: 'center', color: '#2d3748', marginBottom: '30px' }}>
-            🎨 Drag & Drop Magic in Action
+             Drag & Drop Magic in Action
           </h2>
           <div style={{
             display: 'flex',
@@ -213,7 +213,7 @@ const Ecommerce = () => {
             </div>
           </div>
           <div style={{ textAlign: 'center', marginTop: '30px', fontSize: '1.1rem', color: '#666' }}>
-            👆 Drag these to the canvas → Edit content → Export HTML → Launch your store!
+             Drag these to the canvas → Edit content → Export HTML → Launch your store!
           </div>
         </div>
       )}
@@ -255,7 +255,7 @@ const Ecommerce = () => {
             background: 'white', color: '#667eea', padding: '20px 50px',
             borderRadius: '50px', textDecoration: 'none', fontSize: '1.2rem', fontWeight: 'bold'
           }}>
-            🚀 Start Free Trial
+             Start Free Trial
           </Link>
           <Link to="/pricing" style={{
             background: 'transparent', color: 'white', padding: '20px 50px',

@@ -305,7 +305,7 @@ const HealthCareSolutions = () => {
       <div className="healthcare-container">
         {showLogin ? (
           <div className="auth-card">
-            <div className="medical-icon">🏥</div>
+            <div className="medical-icon"></div>
             <h2>MediCollab Portal</h2>
             <div className="subtitle">Multi-Tenant Healthcare Platform</div>
             <div className="input-group">
@@ -333,7 +333,7 @@ const HealthCareSolutions = () => {
           </div>
         ) : (
           <div className="auth-card">
-            <div className="medical-icon">🏥</div>
+            <div className="medical-icon"></div>
             <h2>Register Healthcare Facility</h2>
             <div className="input-group">
               <label>Full Name</label>
@@ -352,6 +352,8 @@ const HealthCareSolutions = () => {
               <select value={signupRole} onChange={(e) => setSignupRole(e.target.value)}>
                 <option value="doctor">Doctor</option>
                 <option value="nurse">Nurse</option>
+                <option value="lab_operator">Lab Operator</option>
+                <option value="receptionist">Receptionist</option>
                 <option value="admin">Admin</option>
               </select>
             </div>
@@ -379,7 +381,7 @@ const HealthCareSolutions = () => {
     <div className="main-app">
       <header className="app-header">
         <div className="logo-area">
-          <h1>🏥 MediCollab | {getTenants()[tenantId]?.name || 'Healthcare Suite'}</h1>
+          <h1> MediCollab | {getTenants()[tenantId]?.name || 'Healthcare Suite'}</h1>
         </div>
         <div className="user-info">
           <span>{currentUser.name} ({currentUser.role})</span>
@@ -390,23 +392,23 @@ const HealthCareSolutions = () => {
       
       <nav className="tabs">
         <button className={`tab-btn ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => setActiveTab('dashboard')}>
-          📊 Dashboard
+           Dashboard
         </button>
         <button className={`tab-btn ${activeTab === 'patients' ? 'active' : ''}`} onClick={() => setActiveTab('patients')}>
-          👥 Patients
+           Patients
         </button>
         <button className={`tab-btn ${activeTab === 'appointments' ? 'active' : ''}`} onClick={() => setActiveTab('appointments')}>
-          📅 Appointments
+           Appointments
         </button>
         <button className={`tab-btn ${activeTab === 'prescriptions' ? 'active' : ''}`} onClick={() => setActiveTab('prescriptions')}>
-          💊 Prescriptions
+           Prescriptions
         </button>
         <button className={`tab-btn ${activeTab === 'collab' ? 'active' : ''}`} onClick={() => setActiveTab('collab')}>
-          💬 Team Chat
+           Team Chat
         </button>
         {isAdmin && (
           <button className={`tab-btn ${activeTab === 'admin' ? 'active' : ''}`} onClick={() => setActiveTab('admin')}>
-            ⚙️ Admin
+             Admin
           </button>
         )}
       </nav>
@@ -415,7 +417,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'dashboard' && (
           <div className="dashboard-grid">
             <section className="overview-card">
-              <h2>📊 Today's Overview</h2>
+              <h2> Today's Overview</h2>
               <div className="metrics">
                 <div className="metric">
                   <span className="metric-number">{patients.length}</span>
@@ -436,7 +438,7 @@ const HealthCareSolutions = () => {
               </div>
             </section>
             <section className="recent-card">
-              <h2>🩺 Recent Patients</h2>
+              <h2> Recent Patients</h2>
               {patients.length === 0 ? (
                 <p>No patients yet. Add your first patient!</p>
               ) : (
@@ -455,7 +457,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'patients' && (
           <div className="patients-section">
             <div className="form-card">
-              <h2>➕ Add New Patient</h2>
+              <h2> Add New Patient</h2>
               <form onSubmit={(e) => { e.preventDefault(); handleAddPatient(); }}>
                 <input type="text" placeholder="Patient Name" value={patientName} onChange={(e) => setPatientName(e.target.value)} required />
                 <input type="number" placeholder="Age" value={patientAge} onChange={(e) => setPatientAge(e.target.value)} />
@@ -465,7 +467,7 @@ const HealthCareSolutions = () => {
               </form>
             </div>
             <div className="list-card">
-              <h2>📋 Patient Records ({patients.length})</h2>
+              <h2> Patient Records ({patients.length})</h2>
               <div className="list">
                 {patients.length === 0 ? (
                   <p>No patients registered yet.</p>
@@ -491,7 +493,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'appointments' && (
           <div className="appointments-section">
             <div className="form-card">
-              <h2>📅 Schedule Appointment</h2>
+              <h2> Schedule Appointment</h2>
               <form onSubmit={(e) => { e.preventDefault(); handleScheduleAppt(); }}>
                 <input type="text" placeholder="Patient Name" value={apptPatientName} onChange={(e) => setApptPatientName(e.target.value)} required />
                 <input type="datetime-local" value={apptDateTime} onChange={(e) => setApptDateTime(e.target.value)} required />
@@ -501,7 +503,7 @@ const HealthCareSolutions = () => {
               </form>
             </div>
             <div className="list-card">
-              <h2>📋 Upcoming Appointments ({appointments.length})</h2>
+              <h2> Upcoming Appointments ({appointments.length})</h2>
               <div className="list">
                 {appointments.length === 0 ? (
                   <p>No appointments scheduled.</p>
@@ -511,9 +513,9 @@ const HealthCareSolutions = () => {
                       <div>
                         <strong>{a.patientName}</strong>
                         <br />
-                        <span>👨‍⚕️ Dr. {a.doctor || 'Not assigned'}</span>
+                        <span> Dr. {a.doctor || 'Not assigned'}</span>
                         <br />
-                        <span>📝 {a.reason || 'No reason specified'}</span>
+                        <span> {a.reason || 'No reason specified'}</span>
                       </div>
                       <div className="appointment-details">
                         <span className="status-badge status-scheduled">{a.status}</span>
@@ -531,7 +533,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'prescriptions' && (
           <div className="prescriptions-section">
             <div className="form-card">
-              <h2>💊 Issue Prescription</h2>
+              <h2> Issue Prescription</h2>
               <form onSubmit={(e) => { e.preventDefault(); handleIssuePresc(); }}>
                 <input type="text" placeholder="Patient Name" value={prescPatient} onChange={(e) => setPrescPatient(e.target.value)} required />
                 <input type="text" placeholder="Medication" value={prescMedication} onChange={(e) => setPrescMedication(e.target.value)} required />
@@ -541,7 +543,7 @@ const HealthCareSolutions = () => {
               </form>
             </div>
             <div className="list-card">
-              <h2>📋 Prescriptions ({prescriptions.length})</h2>
+              <h2> Prescriptions ({prescriptions.length})</h2>
               <div className="list">
                 {prescriptions.length === 0 ? (
                   <p>No prescriptions issued yet.</p>
@@ -551,9 +553,9 @@ const HealthCareSolutions = () => {
                       <div>
                         <strong>{p.patientName}</strong>
                         <br />
-                        <span>💊 {p.medication}</span>
+                        <span> {p.medication}</span>
                         <br />
-                        <span>💊 Dosage: {p.dosage || 'As directed'}</span>
+                        <span> Dosage: {p.dosage || 'As directed'}</span>
                         <br />
                         <small>{p.instructions}</small>
                       </div>
@@ -573,7 +575,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'collab' && (
           <div className="chat-section">
             <div className="chat-container">
-              <h2>💬 Team Chat</h2>
+              <h2> Team Chat</h2>
               <div className="chat-messages">
                 {teamMsgs.length === 0 ? (
                   <p>No messages yet. Start the conversation!</p>
@@ -594,7 +596,7 @@ const HealthCareSolutions = () => {
             </div>
             
             <div className="chat-container">
-              <h2>🏥 Department Chat</h2>
+              <h2> Department Chat</h2>
               <select className="dept-select" value={selectedDept} onChange={(e) => setSelectedDept(e.target.value)}>
                 <option value="">Select Department</option>
                 {depts.map(dept => (
@@ -627,7 +629,7 @@ const HealthCareSolutions = () => {
         {activeTab === 'admin' && isAdmin && (
           <div className="admin-section">
             <div className="admin-card">
-              <h3>🏥 Manage Departments</h3>
+              <h3> Manage Departments</h3>
               <div className="input-group">
                 <input type="text" placeholder="New Department Name" value={newDeptName} onChange={(e) => setNewDeptName(e.target.value)} />
                 <button className="primary-btn" onClick={handleAddDept} style={{ marginTop: '10px' }}>Add Department</button>
@@ -643,7 +645,7 @@ const HealthCareSolutions = () => {
             </div>
 
             <div className="admin-card">
-              <h3>👥 Manage Staff</h3>
+              <h3> Manage Staff</h3>
               <div className="input-group">
                 <input type="email" placeholder="Staff Email to Add" value={newStaffEmail} onChange={(e) => setNewStaffEmail(e.target.value)} />
                 <select value={newStaffRole} onChange={(e) => setNewStaffRole(e.target.value)} style={{ marginTop: '10px' }}>
@@ -668,7 +670,7 @@ const HealthCareSolutions = () => {
             </div>
 
             <div className="admin-card">
-              <h3>📄 Upload Report</h3>
+              <h3> Upload Report</h3>
               <div className="input-group">
                 <input type="text" placeholder="Report Title" value={reportTitle} onChange={(e) => setReportTitle(e.target.value)} />
                 <textarea placeholder="Report Content" value={reportContent} onChange={(e) => setReportContent(e.target.value)} rows="5" style={{ marginTop: '10px' }} />
