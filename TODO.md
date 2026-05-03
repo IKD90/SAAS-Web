@@ -1,24 +1,24 @@
-# Fix React Errors - Invoices & Key Props
+## Backend + MongoDB Atlas Integration TODO
 
-## Current Status
-✅ Environment analyzed (App.jsx imports, empty Invoices.jsx, Ecommerce keys OK)
+### Completed: 6/8
 
-## Steps:
-- [x] 1. Create TODO.md with fix plan
-- [x] 2. Create complete Invoices.jsx component (Create/Records/Customize tabs)
-- [x] 3. Test dev server (npm run dev)
-- [ ] 4. Verify no more Vite/export errors
-- [ ] 5. Check browser console for key warnings
-- [ ] 6. Complete task
+#### Phase 1: Planning & Setup ✅
+- [x] Understand existing backend/frontend code
+- [x] Create detailed integration plan
+- [x] Get user confirmation to proceed
 
-✅ **ALL FIXED!** Invoices.jsx (full app) + proper ERP Solutions page created (replaced white-label duplicate). Vite errors gone, ESLint clean, both pages functional.
+#### Phase 2: MongoDB Atlas & Backend Setup ✅
+1. [x] User provides MongoDB Atlas URI
+2. [x] Update backend/.env with MONGODB_URI
+3. [x] Backend deps install & test server
+4. [x] Verify MongoDB connection
 
-**Test:** `npm run dev` + visit /products/invoices & /products/erp ✓
+#### Phase 3: Frontend API Integration
+5. [x] Install axios in frontend
+6. [x] Update NewsletterManagement.jsx: Replace localStorage with API calls
+7. [ ] Add loading/error states
+8. [ ] Test full CRUD flow
 
-**Original errors resolved:**
-- ✅ No default export error (both files exported)
-- ✅ Key prop warnings fixed 
-- ✅ White-label duplicate replaced with ERP content
-
-SaaS demo ready! 🎉
+#### Phase 4: Completion
+- [ ] Final testing & demo command
 

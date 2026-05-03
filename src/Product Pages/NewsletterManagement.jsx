@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+
 import './NewsletterManager.css';
+import { newsletterAPI } from '../api/newsletterAPI';
 
 const NewsletterManager = () => {
   const [activeTab, setActiveTab] = useState('subscribe');
@@ -29,56 +31,32 @@ const NewsletterManager = () => {
   const [selectedNewsletter, setSelectedNewsletter] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   
-  // Load data from localStorage
+  // Loading and error states (unused ESLint warnings fixed later)
+
+  // Load data from backend API
+  const loadData = useCallback(async () => {
+    setIsLoading(true);
+    setApiError('');
+    try {
+      const [subscribersRes, newslettersRes] = await Promise.all([
+        newsletterAPI.getSubscribers(),
+        newsletterAPI.getNewsletters()
+      ]);
+      setSubscribers(subscribersRes.data);
+      setNewsletters(newslettersRes.data);
+    } catch (err) {
+      console.error('Failed to load data:', err);
+      setApiError('Failed to load data. Is backend running?');
+      showNotification('Failed to load data from server', 'error');
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     loadData();
     checkAdminSession();
-  }, []);
-  
-  const loadData = () => {
-    const savedSubscribers = localStorage.getItem('newsletter_subscribers');
-    const savedNewsletters = localStorage.getItem('newsletters');
-    
-    if (savedSubscribers) {
-      setSubscribers(JSON.parse(savedSubscribers));
-    } else {
-      const sampleSubscribers = [
-        { email: 'john@example.com', name: 'John Doe', subscribedAt: '2024-01-15', status: 'active' },
-        { email: 'jane@example.com', name: 'Jane Smith', subscribedAt: '2024-01-20', status: 'active' }
-      ];
-      setSubscribers(sampleSubscribers);
-      localStorage.setItem('newsletter_subscribers', JSON.stringify(sampleSubscribers));
-    }
-    
-    if (savedNewsletters) {
-      setNewsletters(JSON.parse(savedNewsletters));
-    } else {
-      const sampleNewsletters = [
-        {
-          id: 1,
-          title: 'Welcome to Our Newsletter!',
-          content: 'Thank you for subscribing to our newsletter. You will receive the latest updates about our products and services.',
-          category: 'Welcome',
-          imageUrl: '',
-          important: true,
-          sentAt: '2024-01-10',
-          sentBy: 'Admin'
-        },
-        {
-          id: 2,
-          title: 'New Features Released',
-          content: 'We are excited to announce the release of new features including AI-powered analytics and real-time reporting.',
-          category: 'Product Update',
-          imageUrl: '',
-          important: false,
-          sentAt: '2024-01-20',
-          sentBy: 'Admin'
-        }
-      ];
-      setNewsletters(sampleNewsletters);
-      localStorage.setItem('newsletters', JSON.stringify(sampleNewsletters));
-    }
-  };
+  }, [loadData]);
   
   const checkAdminSession = () => {
     const adminLoggedIn = localStorage.getItem('newsletter_admin');
@@ -93,7 +71,7 @@ const NewsletterManager = () => {
   };
   
   // Subscribe to newsletter
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
     if (!currentSubscriber.email) {
       showNotification('Please enter your email address', 'error');
@@ -106,31 +84,20 @@ const NewsletterManager = () => {
       return;
     }
     
-    const existingSubscriber = subscribers.find(s => s.email === currentSubscriber.email);
-    if (existingSubscriber) {
-      showNotification('This email is already subscribed!', 'error');
-      return;
+    try {
+      const newSubscriber = {
+        ...currentSubscriber,
+        subscribedAt: new Date().toISOString().split('T')[0],
+        status: 'active'
+      };
+      await newsletterAPI.addSubscriber(newSubscriber);
+      loadData(); // Refresh list
+      setCurrentSubscriber({ email: '', name: '', subscribedAt: '' });
+      showNotification('Successfully subscribed to newsletter!', 'success');
+    } catch (err) {
+      console.error('Subscribe error:', err);
+      showNotification(err.response?.data?.error || 'Subscription failed', 'error');
     }
-    
-    const newSubscriber = {
-      ...currentSubscriber,
-      subscribedAt: new Date().toISOString().split('T')[0],
-      status: 'active'
-    };
-    
-    const updatedSubscribers = [...subscribers, newSubscriber];
-    setSubscribers(updatedSubscribers);
-    localStorage.setItem('newsletter_subscribers', JSON.stringify(updatedSubscribers));
-    
-    // Send welcome email simulation
-    sendWelcomeEmail(newSubscriber);
-    
-    setCurrentSubscriber({ email: '', name: '', subscribedAt: '' });
-    showNotification('Successfully subscribed to newsletter!', 'success');
-  };
-  
-  const sendWelcomeEmail = (subscriber) => {
-    console.log(`Sending welcome email to ${subscriber.email}`);
   };
   
   // Admin Login
@@ -154,36 +121,33 @@ const NewsletterManager = () => {
   };
   
   // Post Newsletter
-  const handlePostNewsletter = (e) => {
+  const handlePostNewsletter = async (e) => {
     e.preventDefault();
     if (!newsletterPost.title || !newsletterPost.content) {
       showNotification('Please fill in title and content', 'error');
       return;
     }
     
-    const newNewsletter = {
-      id: Date.now(),
-      ...newsletterPost,
-      sentAt: new Date().toISOString().split('T')[0],
-      sentBy: 'Admin'
-    };
-    
-    const updatedNewsletters = [newNewsletter, ...newsletters];
-    setNewsletters(updatedNewsletters);
-    localStorage.setItem('newsletters', JSON.stringify(updatedNewsletters));
-    
-    // Send email to all subscribers
-    sendNewsletterToSubscribers(newNewsletter);
-    
-    setNewsletterPost({
-      title: '',
-      content: '',
-      category: 'General',
-      imageUrl: '',
-      important: false
-    });
-    
-    showNotification('Newsletter posted and sent to all subscribers!', 'success');
+    try {
+      const newNewsletter = {
+        ...newsletterPost,
+        sentAt: new Date().toISOString().split('T')[0],
+        sentBy: 'Admin'
+      };
+      await newsletterAPI.addNewsletter(newNewsletter);
+      loadData();
+      setNewsletterPost({
+        title: '',
+        content: '',
+        category: 'General',
+        imageUrl: '',
+        important: false
+      });
+      showNotification('Newsletter posted and sent to all subscribers!', 'success');
+    } catch (err) {
+      console.error('Post newsletter error:', err);
+      showNotification(err.response?.data?.error || 'Failed to post newsletter', 'error');
+    }
   };
   
   const sendNewsletterToSubscribers = (newsletter) => {
@@ -194,22 +158,30 @@ const NewsletterManager = () => {
   };
   
   // Unsubscribe
-  const handleUnsubscribe = (email) => {
+  const handleUnsubscribe = async (email) => {
     if (window.confirm(`Remove ${email} from subscribers?`)) {
-      const updatedSubscribers = subscribers.filter(s => s.email !== email);
-      setSubscribers(updatedSubscribers);
-      localStorage.setItem('newsletter_subscribers', JSON.stringify(updatedSubscribers));
-      showNotification('Subscriber removed successfully!', 'success');
+      try {
+        await newsletterAPI.deleteSubscriber(email);
+        loadData();
+        showNotification('Subscriber removed successfully!', 'success');
+      } catch (err) {
+        console.error('Unsubscribe error:', err);
+        showNotification('Failed to remove subscriber', 'error');
+      }
     }
   };
   
   // Delete Newsletter
-  const handleDeleteNewsletter = (id) => {
+  const handleDeleteNewsletter = async (id) => {
     if (window.confirm('Delete this newsletter?')) {
-      const updatedNewsletters = newsletters.filter(n => n.id !== id);
-      setNewsletters(updatedNewsletters);
-      localStorage.setItem('newsletters', JSON.stringify(updatedNewsletters));
-      showNotification('Newsletter deleted!', 'success');
+      try {
+        await newsletterAPI.deleteNewsletter(id);
+        loadData();
+        showNotification('Newsletter deleted!', 'success');
+      } catch (err) {
+        console.error('Delete newsletter error:', err);
+        showNotification('Failed to delete newsletter', 'error');
+      }
     }
   };
   
