@@ -4,7 +4,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .erp-hero {
@@ -16,7 +16,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, white, rgba(255,255,255,0.8));
+  background: linear-gradient(45deg, white, rgba(255, 255, 255, 0.8));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -39,13 +39,14 @@
   align-items: start;
 }
 
-.auth-card, .demo-section {
-  background: rgba(255,255,255,0.95);
+.auth-card,
+.demo-section {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .demo-section {
@@ -83,7 +84,8 @@
   font-size: 0.95rem;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
   padding: 14px 18px;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
@@ -92,7 +94,8 @@
   background: white;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
@@ -111,7 +114,8 @@
   gap: 1.5rem;
 }
 
-.demo-btn, .auth-btn {
+.demo-btn,
+.auth-btn {
   padding: 16px;
   border: none;
   border-radius: 12px;
@@ -168,20 +172,20 @@
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .feature-card:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .feature-card i {
@@ -212,7 +216,8 @@
     padding: 0 16px 60px;
   }
 
-  .auth-card, .demo-section {
+  .auth-card,
+  .demo-section {
     max-width: none;
     padding: 32px 24px;
   }
@@ -235,9 +240,9 @@
 }
 
 @media (max-width: 480px) {
-  .auth-card, .demo-section {
+  .auth-card,
+  .demo-section {
     padding: 24px 20px;
     margin: 0 8px;
   }
 }
-

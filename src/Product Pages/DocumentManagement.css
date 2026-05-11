@@ -7,7 +7,13 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   height: 100vh;
   overflow: hidden;
@@ -321,7 +327,8 @@ body {
 }
 
 /* Folder & File Grids */
-.folder-grid, .file-grid {
+.folder-grid,
+.file-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
@@ -717,11 +724,11 @@ body {
     padding: 1rem;
     gap: 1rem;
   }
-  
+
   .main-layout {
     flex-direction: column;
   }
-  
+
   .sidebar-modules {
     width: 100%;
     flex-direction: row;
@@ -729,33 +736,33 @@ body {
     padding: 1rem;
     gap: 0.5rem;
   }
-  
+
   .module-item {
     white-space: nowrap;
   }
-  
+
   .content-area {
     padding: 1rem;
   }
-  
+
   .folder-grid,
   .file-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .stats-row {
     grid-template-columns: 1fr;
   }
-  
+
   .section-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .header-buttons {
     width: 100%;
   }
-  
+
   .header-buttons button {
     flex: 1;
   }

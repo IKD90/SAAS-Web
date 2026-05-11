@@ -7,7 +7,13 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background: #f0f2f5;
 }
 
@@ -38,7 +44,7 @@ body {
   gap: 12px;
   font-size: 24px;
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .hr-logo-area i {
@@ -183,8 +189,14 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==================== PANEL HEADER ==================== */
@@ -672,47 +684,47 @@ body {
     padding: 16px;
     gap: 12px;
   }
-  
+
   .hr-dashboard-container {
     flex-direction: column;
   }
-  
+
   .hr-sidebar-nav {
     width: 100%;
     overflow-x: auto;
     padding: 12px;
   }
-  
+
   .hr-sidebar-nav nav ul {
     display: flex;
     gap: 8px;
   }
-  
+
   .hr-sidebar-nav nav ul li {
     white-space: nowrap;
   }
-  
+
   .hr-content-panel {
     padding: 16px;
   }
-  
+
   .hr-panel-header {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .hr-search-filter-bar {
     flex-direction: column;
   }
-  
+
   .hr-search-box {
     max-width: 100%;
   }
-  
+
   .hr-dept-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .hr-attendance-summary-cards {
     grid-template-columns: 1fr;
   }
@@ -723,13 +735,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .hr-data-table th,
   .hr-data-table td {
     padding: 8px 12px;
     font-size: 12px;
   }
-  
+
   .hr-modal-content {
     margin: 16px;
     padding: 20px;

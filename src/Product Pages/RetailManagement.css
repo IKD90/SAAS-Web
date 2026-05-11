@@ -107,7 +107,9 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   font-size: 1rem;
 }
 
@@ -276,7 +278,9 @@
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #e2e8f0;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .card:hover {
@@ -543,47 +547,47 @@ textarea:focus {
   .auth-card {
     padding: 1.5rem;
   }
-  
+
   .auth-card h2 {
     font-size: 1.5rem;
   }
-  
+
   .app-header {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .logo-area h1 {
     font-size: 1.2rem;
   }
-  
+
   .user-info {
     justify-content: center;
   }
-  
+
   .tabs {
     justify-content: center;
   }
-  
+
   .tab-btn {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }
-  
+
   .grid-2col,
   .grid-3col,
   .grid-4col {
     grid-template-columns: 1fr;
   }
-  
+
   .card {
     padding: 1rem;
   }
-  
+
   .stat-number {
     font-size: 1.5rem;
   }
-  
+
   .cart-item {
     flex-direction: column;
     text-align: center;
@@ -595,29 +599,29 @@ textarea:focus {
   .retailcollab-app {
     padding: 0.5rem;
   }
-  
+
   .app-header {
     padding: 1rem;
   }
-  
+
   .user-info {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .tenant-badge {
     width: 100%;
     text-align: center;
   }
-  
+
   .logout-btn {
     width: 100%;
   }
-  
+
   .chat-input-group {
     flex-direction: column;
   }
-  
+
   .send-btn {
     width: 100%;
   }
@@ -632,7 +636,7 @@ textarea:focus {
 }
 
 .loading::after {
-  content: '';
+  content: "";
   width: 40px;
   height: 40px;
   border: 4px solid #f3f3f3;
@@ -642,8 +646,12 @@ textarea:focus {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Badge Styles */

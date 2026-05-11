@@ -121,7 +121,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>
             © {new Date().getFullYear()} RKS Developers Group. All rights reserved. | 
-            Designed and Developed with <i className="fas fa-heart" style={{ color: '#ef4444' }}></i> by RKS Developers Group
+            Designed and Developed by RKS Developers Group
           </p>
         </div>
       </div>

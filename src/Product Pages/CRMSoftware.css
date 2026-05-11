@@ -4,7 +4,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .crm-hero {
@@ -16,7 +16,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, white, rgba(255,255,255,0.8));
+  background: linear-gradient(45deg, white, rgba(255, 255, 255, 0.8));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -51,18 +51,24 @@
 }
 
 .stat-card {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   transition: all 0.3s ease;
 }
 
-.stat-card.lead { border-left: 4px solid #f59e0b; }
-.stat-card.qualified { border-left: 4px solid #10b981; }
-.stat-card.customer { border-left: 4px solid #3b82f6; }
+.stat-card.lead {
+  border-left: 4px solid #f59e0b;
+}
+.stat-card.qualified {
+  border-left: 4px solid #10b981;
+}
+.stat-card.customer {
+  border-left: 4px solid #3b82f6;
+}
 
 .stat-number {
   font-size: 2rem;
@@ -76,11 +82,11 @@
 }
 
 .quick-actions {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 1.5rem;
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .quick-actions h3 {
@@ -107,7 +113,7 @@
 .quick-btn.secondary {
   background: transparent;
   color: white;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .quick-btn:hover {
@@ -121,12 +127,12 @@
 }
 
 .auth-card {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   max-width: 420px;
   align-self: flex-start;
 }
@@ -220,11 +226,11 @@
 }
 
 .crm-demo {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-radius: 24px;
   padding: 40px;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .crm-demo h3 {
@@ -313,7 +319,7 @@ td {
   font-weight: 600;
 }
 
-.status-badge.lead { 
+.status-badge.lead {
   background: #fef3c7;
   color: #92400e;
 }
@@ -365,7 +371,7 @@ td {
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -375,9 +381,9 @@ td {
   .crm-container {
     padding: 0 16px 40px;
   }
-  
-  .crm-demo, .auth-card {
+
+  .crm-demo,
+  .auth-card {
     padding: 24px;
   }
 }
-

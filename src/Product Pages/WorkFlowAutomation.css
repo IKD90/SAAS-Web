@@ -7,7 +7,15 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    sans-serif;
   /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); */
   min-height: 100vh;
 }
@@ -65,7 +73,7 @@ body {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -74,7 +82,9 @@ body {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition:
+    width 0.6s,
+    height 0.6s;
 }
 
 .btn:hover::before {
@@ -198,7 +208,7 @@ body {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -973,7 +983,7 @@ td {
   background: rgba(255, 255, 255, 0.05);
   border-left: 3px solid #8b5cf6;
   border-radius: 0.5rem;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.875rem;
   color: #e2e8f0;
 }
@@ -1016,44 +1026,44 @@ td {
     text-align: center;
     padding: 1rem;
   }
-  
+
   .main-content {
     padding: 1rem;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .workflow-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .steps-panel {
     width: 100%;
     right: -100%;
   }
-  
+
   .builder-header {
     flex-direction: column;
   }
-  
+
   .filter-bar {
     flex-direction: column;
   }
-  
+
   .filter-group {
     width: 100%;
   }
-  
+
   .templates-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .workflow-actions {
     flex-direction: column;
   }
-  
+
   .workflow-actions .btn {
     width: 100%;
   }
@@ -1061,7 +1071,8 @@ td {
 
 /* Loading Animation */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {

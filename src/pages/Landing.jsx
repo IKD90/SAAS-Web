@@ -4,7 +4,7 @@ import "./../App.css"; // use App.css styles
 
 const Landing = () => {
   return (
-    <div className="container">
+    <div className="landing-container">
       {/* Hero Section */}
       <div className="hero">
         <h1>Welcome to RKS Developers Group</h1>
